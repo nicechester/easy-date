@@ -66,4 +66,7 @@ Formatter
 LocalDate date = LocalDate.parse("March 10", FindDate.getFormatter());
 System.out.println(date);
 ```
+results
+```
 2025-03-10
+```
