@@ -22,7 +22,6 @@ public class FindDate {
 
     public static LocalDate parse(String dateString) {
         String numerized = Numerizer.numerize(dateString);
-        System.out.println(numerized);
         LocalDate date = LocalDate.parse(numerized, TEXT_DATE_FORMAT);
         return date;
     }
