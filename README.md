@@ -36,11 +36,8 @@ for (String d : ds) {
 ```
 results
 ```
-March 10
 2025-03-10
-February 2
 2025-02-02
-December 25
 2025-12-25
 ```
 
