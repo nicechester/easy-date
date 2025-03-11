@@ -1,11 +1,29 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>com.chester</groupId>
-  <artifactId>EasyDate</artifactId>
-  <version>1.0-SNAPSHOT</version>
-  <name>Archetype - EasyDate</name>
-  <url>http://maven.apache.org</url>
+  <groupId>org.chester.easylibs</groupId>
+  <artifactId>easy-date</artifactId>
+  <version>0.1-SNAPSHOT</version>
+  <name>${project.groupId}:${project.artifactId}</name>
+  <description>A simple java based date find, numerize library</description>
+  <url>https://github.com/nicechester/easy-date</url>
+  <licenses>
+    <license>
+      <name>GNU GENERAL PUBLIC LICENSE</name>
+      <url>https://www.gnu.org/licenses/gpl-3.0.en.html</url>
+    </license>
+  </licenses>
+  <developers>
+    <developer>
+      <name>Chester Kim</name>
+      <url>https://github.com/nicechester</url>
+    </developer>
+  </developers>
+  <scm>
+    <connection>scm:git:git://github.com/nicechester/easy-date.git</connection>
+    <developerConnection>scm:git:ssh://github.com:nicechester/easy-date.git</developerConnection>
+    <url>https://github.com/nicechester/easy-date/tree/main</url>
+  </scm>
   <dependencies>
     <dependency>
       <groupId>org.junit.jupiter</groupId>
@@ -26,4 +44,10 @@
       </plugin>
     </plugins>
   </build>
+  <repositories>
+    <repository>
+      <id>sonatype-snapshots</id>
+      <url>https://s01.oss.sonatype.org/content/repositories/snapshots/</url>
+    </repository>
+  </repositories>
 </project>
