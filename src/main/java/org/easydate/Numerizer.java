@@ -29,10 +29,20 @@ public class Numerizer {
         }
     }
 
+    /**
+     * Return all supported numeric words.
+     * @return collection of numeric words
+     */
     public static Collection<String> suppoerted_words() {
         return NUMERIC_WORDS.keySet();
     }
 
+    /**
+     * Parse a numeric word to int.
+     * @param numericWord
+     * @return
+     * @throws ParseException
+     */
     public static int parse(String numericWord) throws ParseException {
         if (!NUMERIC_WORDS.containsKey(numericWord)) {
             throw new ParseException(String.format("'%s' isn't a number word!", numericWord), 0);
@@ -51,6 +61,11 @@ public class Numerizer {
         return Optional.empty();
     }
 
+    /**
+     * replace all numeric words with int in given text.
+     * @param text
+     * @return
+     */
     public static String numerize(String text) {
         int begin = 0;
         List<String> result = new ArrayList<>();

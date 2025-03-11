@@ -16,16 +16,30 @@ public class FindDate {
             .parseDefaulting(ChronoField.YEAR, LocalDate.now().getYear())
             .toFormatter(Locale.ENGLISH);
 
+    /**
+     * getting simple text based date formattter.
+     * @return
+     */
     public static DateTimeFormatter getFormatter() {
         return TEXT_DATE_FORMAT;
     }
 
+    /**
+     * parse text based date string.
+     * @param dateString
+     * @return
+     */
     public static LocalDate parse(String dateString) {
         String numerized = Numerizer.numerize(dateString);
         LocalDate date = LocalDate.parse(numerized, TEXT_DATE_FORMAT);
         return date;
     }
 
+    /**
+     * replace all date strings with DateTimeFormatter.ISO_LOCAL_DATE format in given text.
+     * @param text
+     * @return
+     */
     public static String datize(String text) {
         String source = Numerizer.numerize(text);
         List<String> words = new ArrayList<>();
@@ -58,6 +72,11 @@ public class FindDate {
         return builder.toString();
     }
 
+    /**
+     * Find and return all dates as LocalDate from given text.
+     * @param text
+     * @return
+     */
     public static List<LocalDate> findDates(String text) {
         String source = datize(text);
         Pattern pattern = Pattern.compile("(\\d+-\\d+-\\d+)");
