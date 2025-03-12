@@ -89,7 +89,7 @@
         <version>0.7.0</version>
         <extensions>true</extensions>
         <configuration>
-          <publishingServerId>central</publishingServerId>
+          <publishingServerId>central-portal-snapshots</publishingServerId>
         </configuration>
       </plugin>
     </plugins>
