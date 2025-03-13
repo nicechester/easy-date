@@ -8,22 +8,8 @@ Add following to pom.xml
 <dependency>
     <groupId>io.github.nicechester</groupId>
     <artifactId>easy-date</artifactId>
-    <version>0.1-SNAPSHOT</version>
+    <version>0.1</version>
 </dependency>
-```
-You may need to add snapshot repo to settings.xml as following
-```
-<repository>
-  <name>Central Portal Snapshots</name>
-  <id>central-portal-snapshots</id>
-  <url>https://central.sonatype.com/repository/maven-snapshots/</url>
-  <releases>
-      <enabled>false</enabled>
-  </releases>
-  <snapshots>
-      <enabled>true</enabled>
-  </snapshots>
-</repository>
 ```
 
 ## Usage

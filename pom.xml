@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>io.github.nicechester</groupId>
   <artifactId>easy-date</artifactId>
-  <version>0.1-SNAPSHOT</version>
+  <version>0.1</version>
   <name>${project.groupId}:${project.artifactId}</name>
   <description>A simple java based date find, numerize library</description>
   <url>https://github.com/nicechester/easy-date</url>
@@ -89,7 +89,8 @@
         <version>0.7.0</version>
         <extensions>true</extensions>
         <configuration>
-          <publishingServerId>central-portal-snapshots</publishingServerId>
+<!--          <publishingServerId>central-portal-snapshots</publishingServerId>-->
+          <publishingServerId>central</publishingServerId>
         </configuration>
       </plugin>
     </plugins>
