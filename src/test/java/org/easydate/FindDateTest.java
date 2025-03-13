@@ -3,6 +3,7 @@ package org.easydate;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
+import java.util.List;
 
 class FindDateTest {
     @Test
@@ -16,8 +17,7 @@ class FindDateTest {
 
     @Test
     void datize() {
-        String source = "Do you have tickets for March tenth, June twenty first, first January, Fourth of July,"
-                        + " 2025-12-25, today and tomorrow for two adults and 1 kid?";
+        String source = "Do you have tix on tomorrow, april fifth, june twenty fifth and fourth of july with two adults and five kids?";
         System.out.println(FindDate.datize(source));
     }
 
@@ -25,6 +25,7 @@ class FindDateTest {
     void findDates() {
         String source = "Do you have tickets for March tenth, June twenty first, first January, Fourth of July,"
                 + " 2025-12-25, today and tomorrow for two adults and 1 kid?";
-        System.out.println(FindDate.findDates(source));
+        List<LocalDate> dates = FindDate.findDates(source);
+        System.out.println(dates);
     }
 }

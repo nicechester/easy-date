@@ -25,7 +25,7 @@ class NumerizerTest {
 
     @Test
     void numerize_keys() {
-        System.out.println(Numerizer.suppoerted_words());
+        System.out.println(Numerizer.suppoertedWords());
     }
 
     @Test
