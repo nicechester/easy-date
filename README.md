@@ -16,7 +16,7 @@ Add following to pom.xml
 ### Numerizer
 Supported words
 ```
-System.out.println(Numerizer.suppoerted_words());
+System.out.println(Numerizer.suppoertedWords());
 ```
 results
 ```
