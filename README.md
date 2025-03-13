@@ -74,30 +74,22 @@ results
 
 Datize
 ```
-String source = "Do you have tickets for March tenth, June twenty first, January 1, 2025-12-25 for two adults and 1 kid?";
+String source = "Do you have tickets for March tenth, June twenty first, first January, Fourth of July,"
+                + " 2025-12-25, today and tomorrow for two adults and 1 kid?";
 System.out.println(FindDate.datize(source));
 ```
 results
 ```
-Do you have tickets for 2025-03-10, 2025-06-21, 2025-01-01, 2025-12-25 for 2 adults and 1 kid?
+Do you have tickets for 2025-03-10, 2025-06-21, 2025-01-01, 2025-07-04, 2025-12-25, 2025-03-12 and 2025-03-13 for 2 adults and 1 kid?
 ```
 
 Find dates
 ```
-String source = "Do you have tickets for March tenth, June twenty first, January 1, 2025-12-25 for two adults and 1 kid?";
+String source = "Do you have tickets for March tenth, June twenty first, first January, Fourth of July,"
+        + " 2025-12-25, today and tomorrow for two adults and 1 kid?";
 System.out.println(FindDate.findDates(source));
 ```
 results (`List<LocalDate>`)
 ```
-[2025-03-10, 2025-06-21, 2025-01-01, 2025-12-25]
-```
-
-Formatter
-```
-LocalDate date = LocalDate.parse("March 10", FindDate.getFormatter());
-System.out.println(date);
-```
-results
-```
-2025-03-10
+[2025-03-10, 2025-06-21, 2025-01-01, 2025-07-04, 2025-12-25, 2025-03-12, 2025-03-13]
 ```
