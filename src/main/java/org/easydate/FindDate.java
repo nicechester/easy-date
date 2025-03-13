@@ -8,6 +8,9 @@ import java.time.temporal.ChronoField;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
+import java.util.SortedMap;
+import java.util.TreeMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -53,6 +56,17 @@ public class FindDate {
         return null;
     }
 
+    private static class CharPos {
+        int size;
+        String dateText;
+        static CharPos of(int size, String dateText) {
+            CharPos charPos = new CharPos();
+            charPos.size = size;
+            charPos.dateText = dateText;
+            return charPos;
+        }
+    }
+
     /**
      * replace all date strings with DateTimeFormatter.ISO_LOCAL_DATE format in given text.
      * @param text
@@ -60,51 +74,38 @@ public class FindDate {
      */
     public static String datize(String text) {
         String source = Numerizer.numerize(text);
-        List<String> words = new ArrayList<>();
-        List<String> dateTexts = new ArrayList<>();
-        List<Integer> starts = new ArrayList<>();
+        SortedMap<Integer, CharPos> charPos = new TreeMap<>();
         Pattern pattern = Pattern.compile(MONTHS + "[\\s]+([0-9]+)");
         Matcher matcher = pattern.matcher(source.toLowerCase());
 
         while (matcher.find()) {
             String dateText = capitalize(matcher.group(1)) + " " + matcher.group(2);
-            dateTexts.add(dateText);
-            words.add(matcher.group());
-            starts.add(matcher.start());
+            charPos.put(matcher.start(), CharPos.of(matcher.group().length(), dateText));
         }
         pattern = Pattern.compile("([0-9]+)\\s+(of\\s+)?" + MONTHS);
         matcher = pattern.matcher(source.toLowerCase());
 
         while (matcher.find()) {
             String dateText = matcher.group(1) + " " + capitalize(matcher.group(3));
-            dateTexts.add(dateText);
-            words.add(matcher.group());
-            starts.add(matcher.start());
+            charPos.put(matcher.start(), CharPos.of(matcher.group().length(), dateText));
         }
 
         pattern = Pattern.compile("(yesterday|today|tomorrow|next week|next month)");
         matcher = pattern.matcher(source.toLowerCase());
 
         while (matcher.find()) {
-            dateTexts.add(matcher.group());
-            words.add(matcher.group());
-            starts.add(matcher.start());
+            charPos.put(matcher.start(), CharPos.of(matcher.group().length(), matcher.group()));
         }
 
         StringBuilder builder = new StringBuilder();
         int beg = 0;
-        String word = "";
-        String dateText = "";
-        int start = beg;
-        for (int i = 0; i < words.size(); ++i) {
-            word = words.get(i);
-            dateText = dateTexts.get(i);
-            start = starts.get(i);
+        for (Map.Entry<Integer, CharPos> entry : charPos.entrySet()) {
+            int start = entry.getKey();
             if (beg < start) {
                 builder.append(source.substring(beg, start));
             }
-            beg = start + word.length();
-            LocalDate d = parse(dateText);
+            beg = start + entry.getValue().size;
+            LocalDate d = parse(entry.getValue().dateText);
             builder.append(d.format(DateTimeFormatter.ISO_LOCAL_DATE));
         }
         if (beg < source.length()) {

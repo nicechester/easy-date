@@ -33,7 +33,7 @@ public class Numerizer {
      * Return all supported numeric words.
      * @return collection of numeric words
      */
-    public static Collection<String> suppoerted_words() {
+    public static Collection<String> suppoertedWords() {
         return NUMERIC_WORDS.keySet();
     }
 
