@@ -53,7 +53,8 @@ Do you have tickets for March 10, June 21, 2025-12-25 for 2 adults and 1 kid?
 ### Find Date
 Parse text dates
 ```
-String[] ds = {"March tenth", "February second", "December twenty fifth"};
+String[] ds = {"March tenth", "February second", "December twenty fifth", "Fourth July",
+        "today", "tomorrow", "yesterday", "next week", "next month"};
 for (String d : ds) {
     System.out.println(FindDate.parse(d));
 }
@@ -63,6 +64,12 @@ results
 2025-03-10
 2025-02-02
 2025-12-25
+2025-07-04
+2025-03-12
+2025-03-13
+2025-03-11
+2025-03-19
+2025-04-12
 ```
 
 Datize
