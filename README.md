@@ -8,7 +8,7 @@ Add following to pom.xml
 <dependency>
     <groupId>io.github.nicechester</groupId>
     <artifactId>easy-date</artifactId>
-    <version>0.3</version>
+    <version>0.4</version>
 </dependency>
 ```
 
