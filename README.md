@@ -49,7 +49,7 @@ for (String d : ds) {
 results
 ```
 New year day: 2025-01-01
-Martin Luther King Junior day: null
+Martin Luther King Junior day: 2025-01-20
 Thanksgiving: 2025-11-20
 Christmas: 2025-12-25
 March tenth: 2025-03-10
