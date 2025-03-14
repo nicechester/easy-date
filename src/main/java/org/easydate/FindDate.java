@@ -57,7 +57,7 @@ public class FindDate {
             String holiday = key.toLowerCase().replace('_', ' ');
             SUPPORTED_HOLIDAYS.add(holiday);
             String[] values = prop.getProperty(key).split(",");
-            HOLIDAYS_RELATIVE.put(key, RelativeDate.of(values));
+            HOLIDAYS_RELATIVE.put(holiday, RelativeDate.of(values));
         }
     }
 
